@@ -1,0 +1,158 @@
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+	<link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script src="results.json"></script>
+	<script src="lodash.min.js"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" ></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/chroma-js/2.4.2/chroma.min.js" integrity="sha512-zInFF17qBFVvvvFpIfeBzo7Tj7+rQxLeTJDmbxjBz5/zIr89YVbTNelNhdTT+/DCrxoVzBeUPVFJsczKbB7sew==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</head>
+<i class="fa-solid "></i>
+<body style="padding-top:50px; padding-bottom: 70px;">
+<div class="container">
+	<div class="row">
+	<div class="col-lg-3">
+		<div class="list-group" style="padding-bottom:15px;">
+		<div class="card">
+			<div class="card-body">
+			<a id="shmenulinks" class="nav-link" style="border-radius: 0.25rem; cursor: pointer; width: 100%;" data-toggle="collapse" aria-expanded="true" aria-controls="menulinks" data-target="#menulinks"><i class="fa fa-bars" aria-hidden="true"></i> Open/Close menu</a>
+			<div id="menulinks" class="nav nav-pills collapse">
+				<a style="width: 100%;" href="https://biga-ahk.github.io/biga.ahk" class="nav-link active"><i class="fa fa-home" aria-hidden="true"></i> biga.ahk Docs</a>
+				<a style="width: 100%;" href="#array" class="nav-link"><i class="fa fa-bars" aria-hidden="true"></i> Array Methods</a>
+				<a style="width: 100%;" href="#string" class="nav-link"><i class="fa fa-quote-left" aria-hidden="true"></i> String Methods</a>
+				<a style="width: 100%;" href="#collection" class="nav-link"><i class="fa fa-table" aria-hidden="true"></i> Collection Methods</a>
+				<a style="width: 100%;" href="#function" class="nav-link"><i class="fa fa-code" aria-hidden="true"></i> Function Methods</a>
+				<a style="width: 100%;" href="#lang" class="nav-link"><i class="fa fa-comments" aria-hidden="true"></i> lang Methods</a>
+				<a style="width: 100%;" href="#math" class="nav-link"><i class="fa fa-calculator" aria-hidden="true"></i> math Methods</a>
+				<a style="width: 100%;" href="#number" class="nav-link"><i class="fa fa-list-ol" aria-hidden="true"></i> number Methods</a>
+				<a style="width: 100%;" href="#object" class="nav-link"><i class="fa fa-object-group" aria-hidden="true"></i> object Methods</a>
+				<a style="width: 100%;" href="#util" class="nav-link"><i class="fa fa-wrench" aria-hidden="true"></i> util Methods</a>
+			</div>
+			</div>
+		</div>
+		</div>
+	</div>
+	<div id="conteudo" class="col-lg-9">
+		<div class="card">
+		<div class="card-body">
+			<h3>Performance Measurement</h3>
+			<br><br>
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col">
+					<h4 id="array">Array Methods:</h4><br>
+					<canvas height="350" id="arrayChart"></canvas>
+					</div>
+					<div class="col">
+					<p>Slowest Performers:</p><br>
+					<canvas height="200" id="arraySlow"></canvas>
+					</div>
+				</div>
+			</div>
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col" id="string">
+					<h4>String Methods:</h4><br>
+					<canvas height="350" id="stringChart"></canvas>
+					</div>
+					<div class="col">
+					<p>Slowest Performers:</p><br>
+					<canvas height="200" id="stringSlow"></canvas>
+					</div>
+				</div>
+			</div>
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col">
+					<h4 id="collection">Collection Methods:</h4><br>
+					<canvas height="350" id="collectionChart"></canvas>
+					</div>
+					<div class="col">
+					<p>Slowest Performers:</p><br>
+					<canvas id="collectionSlow"></canvas>
+					</div>
+				</div>
+			</div>
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col">
+					<h4 id="function">function Methods:</h4><br>
+					<canvas height="350" id="functionChart"></canvas>
+					</div>
+					<div class="col">
+					<p>Slowest Performers:</p><br>
+					<canvas id="functionSlow"></canvas>
+					</div>
+				</div>
+			</div>
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col">
+					<h4 id="lang">lang Methods:</h4><br>
+					<canvas height="350" id="langChart"></canvas>
+					</div>
+					<div class="col">
+					<p>Slowest Performers:</p><br>
+					<canvas id="langSlow"></canvas>
+					</div>
+				</div>
+			</div>
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col">
+					<h4 id="math">math Methods:</h4><br>
+					<canvas height="350" id="mathChart"></canvas>
+					</div>
+					<div class="col">
+					<p>Slowest Performers:</p><br>
+					<canvas id="mathSlow"></canvas>
+					</div>
+				</div>
+			</div>
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col">
+					<h4 id="number">number Methods:</h4><br>
+					<canvas height="350" id="numberChart"></canvas>
+					</div>
+					<div class="col">
+					<p>Slowest Performers:</p><br>
+					<canvas id="numberSlow"></canvas>
+					</div>
+				</div>
+			</div>
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col">
+					<h4 id="object">object Methods:</h4><br>
+					<canvas height="350" id="objectChart"></canvas>
+					</div>
+					<div class="col">
+					<p>Slowest Performers:</p><br>
+					<canvas id="objectSlow"></canvas>
+					</div>
+				</div>
+			</div>
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col">
+					<h4 id="util">util Methods:</h4><br>
+					<canvas height="350" id="utilChart"></canvas>
+					</div>
+					<div class="col">
+					<p>Slowest Performers:</p><br>
+					<canvas id="utilSlow"></canvas>
+					</div>
+				</div>
+			</div>
+		</div>
+		</div>
+	</div>
+	</div>
+</div>
+</body>
+<script src="app.js"></script>
